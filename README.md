@@ -47,5 +47,5 @@ Scripts contain:
  - utility.jl: a file containing utilitary functions used by the other files
 
 ## Reproducibility
-The results can be reproduced by copying the code of the the submissions in the notebook and running it in the appropriate script file or in the notebook itself. The first ~20 submissions are not with a fixed seed and their result can vary but the last ones should be fully reproducible.
+The results can be reproduced either by copying the code of the the submissions in the notebook and running it in the appropriate script file or by loading the appropriate machine in the "submission" notebook. The first ~20 submissions are not with a fixed seed and their result can vary but the last ones should be fully reproducible.
 
