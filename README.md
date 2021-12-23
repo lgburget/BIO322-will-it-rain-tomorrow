@@ -13,18 +13,19 @@ The repository is organised as follows:
  - The predictions on training and test datasets are in the prediction folder
 
 ## Setting up
-To use the code, please download [julia](https://julialang.org/downloads) (at least version 1.6.2)
-open julia and install the code in this repository with
-```julia
-julia> using Pkg
-       Pkg.develop(url = "https://github.com/lgburget/BIO322-will-it-rain-tomorrow")
-       Pkg.activate(".")
-       Pkg.instantiate()
+
+To install the code in this repository, you can clone it to the desired place in your computer by typing 
 ```
+git clone https://github.com/lgburget/BIO322-will-it-rain-tomorrow.git
+```
+or with your method of choice and you should be good to go. 
+`
 ## Data Exploration
-To use the data exploration notebook, start julia and type
+To use the data exploration notebook, please download [julia](https://julialang.org/downloads) (at least version 1.6.2),
+open julia and type:
 ```julia
 julia> using Pkg; Pkg.activate(".")
+       Pkg.instantiate()
        using Pluto
        Pluto.run()
 ```
@@ -37,7 +38,7 @@ The data exploration notebook contains:
  - A way to load machines and prediction to visualize the results post-training
 
 ## Scripts
-To use the scripts, you only need to load them in a code editor supporting the Julia programmation language
+To use the scripts, you only need to load them in a code editor supporting the Julia programmation language. Note that you have to put yourself in the folder BIO322-will-it-rain-tomorrow in order for the correct packages to be active. This can be achieved by using the "open folder" functionnality in VSCode for example.
 
 Scripts contain:
  - logistic_classifier.jl: an implementation of a standard linear classifier using MLJLinearModels
