@@ -1,7 +1,11 @@
 using Pkg
 Pkg.activate(".")
 
-using DataFrames, Plots, CSV, ScikitLearnBase, ScikitLearn, Conda
+using DataFrames, Plots, CSV, ScikitLearnBase, ScikitLearn, Conda, Random
+
+Random.seed!(42)
+include("utility.jl")
+
 
 @sk_import ensemble: RandomForestClassifier
 @sk_import feature_selection: RFECV
@@ -18,7 +22,6 @@ test_nf = CSV.read(joinpath("data", "test_nf.csv"), DataFrame)
 
 using ScikitLearn: fit!, predict
 
-#Here we select features based on recursive feature elimination on fitted random forest
 function selecting_features(train)
     n = [string(":", names(train)[i])  for i in 1:length(names(train))-1]
     r =RandomForestClassifier(n_jobs = -1, verbose = 2)
@@ -35,11 +38,13 @@ function selecting_features(train)
 
     return selected_features
 end
-
 s = DataFrame(names = selecting_features(train_nf).features)
-
-
 
 CSV.write("data/selected_features_nf.csv", s)
 fi = CSV.read(joinpath("data/feature_importance_nf.csv"), DataFrame)
 fs = sort!(fi, :score, rev=true)
+
+######################################################################################################
+# We can then use the function transform_data from utility.jl to create a training and a test dataset 
+# from only including the features that we want
+######################################################################################################
