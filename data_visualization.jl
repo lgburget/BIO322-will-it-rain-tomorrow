@@ -1538,7 +1538,7 @@ function fetch(n)
 end;
 
 # ╔═╡ d6541a57-5cf3-4e32-93eb-d3ea7383cf7a
-md"To load those files, you only need to put in string form the name of the machine as a parameter of the *fetch* function"
+md"To load those files, you only need to put in string form the name of the machine as a parameter of the *fetch* function. This function can sometime bug, just running the cell again should correct it"
 
 # ╔═╡ de56130e-e397-4412-b175-5ddce3f0c406
 m, prediction_train, submission = fetch("21_nn_nf_2");
